@@ -3,41 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go to Manual</title>
+    <title>FANUC Robot Navigation</title>
     <style>
         body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            margin: 20px;
+            background: #f9f9f9;
         }
-        .container {
-            text-align: center;
+
+        .tree {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            max-width: 500px;
         }
-        button {
-            padding: 12px 24px;
-            font-size: 16px;
+
+        .tree li {
+            margin: 6px 0;
+            position: relative;
+        }
+
+        .tree details {
+            margin-left: 0;
+        }
+
+        .tree summary {
             cursor: pointer;
-            border: none;
-            border-radius: 6px;
-            background-color: #0078d7;
-            color: white;
+            font-weight: bold;
+            outline: none;
         }
-        button:hover {
-            background-color: #005a9e;
+
+        .tree summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .tree summary::before {
+            content: "+ ";
+            font-weight: bold;
+            color: #333;
+        }
+
+        .tree details[open] > summary::before {
+            content: "− ";
+        }
+
+        .tree .child {
+            padding-left: 24px;
+            margin-top: 6px;
+        }
+
+        .link-item {
+            padding-left: 24px;
+            display: block;
+            color: #0078d7;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .link-item:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Web Pages</h1>
-        <p>R-30iB Plus eDoc</p>
-        <button onclick="window.location.href='https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm'">
-            Go to Manual
-        </button>
-    </div>
+
+<ul class="tree">
+    <li>
+        <details>
+            <summary>FANUC Robot</summary>
+            <ul class="child">
+                <li>
+                    <details>
+                        <summary>Document</summary>
+                        <a class="link-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm" target="_blank">
+                            R-30iB Plus eDoc
+                        </a>
+                    </details>
+                </li>
+            </ul>
+        </details>
+    </li>
+</ul>
+
 </body>
 </html>
