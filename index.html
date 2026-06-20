@@ -3,14 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirecting...</title>
-    <meta http-equiv="refresh" content="0; url=https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm">
+    <title>Go to Manual</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background-color: #0078d7;
+            color: white;
+        }
+        button:hover {
+            background-color: #005a9e;
+        }
+    </style>
 </head>
 <body>
-    <p>Redirecting, please wait...</p>
-
-    <script>
-        window.location.href = "https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm";
-    </script>
+    <div class="container">
+        <h1>Web Pages</h1>
+        <p>R-30iB Plus eDoc</p>
+        <button onclick="window.location.href='https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm'">
+            Go to Manual
+        </button>
+    </div>
 </body>
 </html>
