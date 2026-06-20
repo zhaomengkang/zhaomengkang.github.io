@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FANUC Robot Navigation</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FANUC Robot Documents</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             background: #f9f9f9;
+            color: #222;
         }
 
         .tree {
             list-style: none;
             padding-left: 0;
             margin: 0;
-            max-width: 500px;
-        }
-
-        .tree li {
-            margin: 6px 0;
-            position: relative;
+            max-width: 800px;
         }
 
         .tree details {
-            margin-left: 0;
+            margin: 6px 0;
         }
 
         .tree summary {
             cursor: pointer;
             font-weight: bold;
             outline: none;
+            display: inline-block;
         }
 
         .tree summary::-webkit-details-marker {
@@ -50,18 +47,22 @@
         .tree .child {
             padding-left: 24px;
             margin-top: 6px;
+            list-style: none;
         }
 
         .link-item {
-            padding-left: 24px;
             display: block;
-            color: #0078d7;
+            padding: 6px 0;
+            color: #005a9e;
             text-decoration: none;
-            cursor: pointer;
         }
 
         .link-item:hover {
             text-decoration: underline;
+        }
+
+        .file-item::before {
+            content: "📄 ";
         }
     </style>
 </head>
@@ -69,15 +70,42 @@
 
 <ul class="tree">
     <li>
-        <details>
+        <details open>
             <summary>FANUC Robot</summary>
             <ul class="child">
                 <li>
-                    <details>
+                    <details open>
                         <summary>Document</summary>
-                        <a class="link-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm" target="_blank">
-                            R-30iB Plus eDoc
-                        </a>
+                        <ul class="child">
+                            <li>
+                                <details>
+                                    <summary>R-30iB Plus eDoc</summary>
+                                    <ul class="child">
+                                        <li>
+                                            <a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm" target="_blank">
+                                                Open Manual
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </details>
+                            </li>
+
+                            <li>
+                                <details>
+                                    <summary>KAREL Manual</summary>
+                                    <ul class="child">
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Reference(B-83144EN-1_02).pdf" target="_blank">KAREL_Reference(B-83144EN-1_02).pdf</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL%20manual%20for%20R30iA%25R30iB%20V7.5.pdf" target="_blank">KAREL manual for R30iA%R30iB V7.5.pdf</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL-Programming-Guide.pdf" target="_blank">KAREL-Programming-Guide.pdf</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KARELTutorial.chm" target="_blank">KARELTutorial.chm</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Function(B-83144EN_02).pdf" target="_blank">KAREL_Function(B-83144EN_02).pdf</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Reference(B-83144EN-1_02).pdf" target="_blank">KAREL_Reference(B-83144EN-1_02).pdf</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/OPERATORS_MANUAL_Reference.pdf" target="_blank">OPERATORS_MANUAL_Reference.pdf</a></li>
+                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/R-J3iC_KAREL_Reference_Manual_[MARRCKREF09051E_REV.B].pdf" target="_blank">R-J3iC_KAREL_Reference_Manual_[MARRCKREF09051E_REV.B].pdf</a></li>
+                                    </ul>
+                                </details>
+                            </li>
+                        </ul>
                     </details>
                 </li>
             </ul>
