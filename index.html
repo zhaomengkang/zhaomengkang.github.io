@@ -5,126 +5,246 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pages Guide</title>
     <style>
+        :root {
+            --bg: #f5f7fb;
+            --panel: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --accent: #2563eb;
+            --border: #dbe3f0;
+            --hover: #eef4ff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
+            margin: 0;
+            padding: 24px;
+            background: linear-gradient(180deg, #f5f7fb 0%, #eef2f7 100%);
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background: #f9f9f9;
-            color: #222;
+            color: var(--text);
+        }
+
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 22px 24px;
+            box-shadow: 0 6px 20px rgba(15, 23, 42, 0.06);
+        }
+
+        h1 {
+            margin: 0 0 18px 0;
+            font-size: 24px;
+            color: var(--text);
+        }
+
+        .subtitle {
+            margin: 0 0 20px 0;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .tree,
+        .tree ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 22px;
+            position: relative;
         }
 
         .tree {
-            list-style: none;
             padding-left: 0;
-            margin: 0;
-            max-width: 900px;
         }
 
-        .tree details {
-            margin: 6px 0;
+        .tree ul {
+            margin-top: 8px;
         }
 
-        .tree summary {
-            cursor: pointer;
-            font-weight: bold;
-            outline: none;
-            display: inline-block;
+        .tree li {
+            position: relative;
+            margin: 4px 0;
+            padding-left: 18px;
         }
 
-        .tree summary::-webkit-details-marker {
+        /* vertical branch line */
+        .tree li::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 6px;
+            width: 1px;
+            height: 100%;
+            background: var(--border);
+        }
+
+        /* horizontal branch line */
+        .tree li::after {
+            content: "";
+            position: absolute;
+            top: 16px;
+            left: 6px;
+            width: 12px;
+            height: 1px;
+            background: var(--border);
+        }
+
+        .tree > li::before,
+        .tree > li::after {
             display: none;
         }
 
-        .tree summary::before {
-            content: "+ ";
-            font-weight: bold;
-            color: #333;
+        details {
+            border-radius: 8px;
         }
 
-        .tree details[open] > summary::before {
-            content: "− ";
-        }
-
-        .tree .child {
-            padding-left: 24px;
-            margin-top: 6px;
+        summary {
+            cursor: pointer;
             list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            transition: background 0.15s ease, color 0.15s ease;
+            user-select: none;
+            font-weight: 600;
+            color: var(--text);
         }
 
-        .link-item {
-            display: block;
-            padding: 6px 0;
-            color: #005a9e;
+        summary:hover {
+            background: var(--hover);
+            color: var(--accent);
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::before {
+            content: "+";
+            display: inline-flex;
+            width: 18px;
+            height: 18px;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1;
+            color: var(--accent);
+            background: #fff;
+            flex: 0 0 18px;
+        }
+
+        details[open] > summary::before {
+            content: "−";
+        }
+
+        .file-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            margin-left: 2px;
+            border-radius: 8px;
             text-decoration: none;
+            color: #0f4c81;
+            font-size: 14px;
+            line-height: 1.4;
+            transition: background 0.15s ease, color 0.15s ease;
         }
 
-        .link-item:hover {
+        .file-link:hover {
+            background: var(--hover);
+            color: var(--accent);
             text-decoration: underline;
         }
 
-        .file-item::before {
-            content: "📄 ";
+        .file-link::before {
+            content: "📄";
+            font-size: 14px;
+        }
+
+        .folder-title {
+            font-size: 15px;
+        }
+
+        .root-title {
+            font-size: 16px;
+        }
+
+        .indent {
+            margin-left: 2px;
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>Pages Guide</h1>
+        <p class="subtitle">Click the folders to expand or collapse the tree.</p>
 
-<ul class="tree">
-    <li>
-        <details open>
-            <summary>FANUC Robot</summary>
-            <ul class="child">
-                <li>
-                    <details open>
-                        <summary>Document</summary>
-                        <ul class="child">
+        <ul class="tree">
+            <li>
+                <details open>
+                    <summary class="root-title">FANUC Robot</summary>
+                    <ul>
+                        <li>
+                            <details open>
+                                <summary class="folder-title">Document</summary>
+                                <ul>
 
-                            <li>
-                                <details>
-                                    <summary>R-30iB Plus eDoc</summary>
-                                    <ul class="child">
-                                        <li>
-                                            <a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm" target="_blank">
-                                                Open Manual
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </details>
-                            </li>
+                                    <li>
+                                        <details>
+                                            <summary class="folder-title">R-30iB Plus eDoc</summary>
+                                            <ul>
+                                                <li>
+                                                    <a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/eDoc/R-30iB%20Plus/welcome.htm" target="_blank">
+                                                        Open Manual
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </details>
+                                    </li>
 
-                            <li>
-                                <details>
-                                    <summary>KAREL Manual</summary>
-                                    <ul class="child">
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Reference(B-83144EN-1_02).pdf" target="_blank">KAREL_Reference(B-83144EN-1_02).pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL%20manual%20for%20R30iA%25R30iB%20V7.5.pdf" target="_blank">KAREL manual for R30iA%R30iB V7.5.pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL-Programming-Guide.pdf" target="_blank">KAREL-Programming-Guide.pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KARELTutorial.chm" target="_blank">KARELTutorial.chm</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Function(B-83144EN_02).pdf" target="_blank">KAREL_Function(B-83144EN_02).pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/OPERATORS_MANUAL_Reference.pdf" target="_blank">OPERATORS_MANUAL_Reference.pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/R-J3iC_KAREL_Reference_Manual_[MARRCKREF09051E_REV.B].pdf" target="_blank">R-J3iC_KAREL_Reference_Manual_[MARRCKREF09051E_REV.B].pdf</a></li>
-                                    </ul>
-                                </details>
-                            </li>
+                                    <li>
+                                        <details>
+                                            <summary class="folder-title">KAREL Manual</summary>
+                                            <ul>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Reference(B-83144EN-1_02).pdf" target="_blank">KAREL_Reference(B-83144EN-1_02).pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL%20manual%20for%20R30iA%25R30iB%20V7.5.pdf" target="_blank">KAREL manual for R30iA%R30iB V7.5.pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL-Programming-Guide.pdf" target="_blank">KAREL-Programming-Guide.pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KARELTutorial.chm" target="_blank">KARELTutorial.chm</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/KAREL_Function(B-83144EN_02).pdf" target="_blank">KAREL_Function(B-83144EN_02).pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/OPERATORS_MANUAL_Reference.pdf" target="_blank">OPERATORS_MANUAL_Reference.pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/KAREL%20Manual/R-J3iC_KAREL_Reference_Manual_[MARRCKREF09051E_REV.B].pdf" target="_blank">R-J3iC_KAREL_Reference_Manual_[MARRCKREF09051E_REV.B].pdf</a></li>
+                                            </ul>
+                                        </details>
+                                    </li>
 
-                            <li>
-                                <details>
-                                    <summary>R-50iA Manual</summary>
-                                    <ul class="child">
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_BasicFunction(B-84464EN_03).pdf" target="_blank">R-50iA_BasicFunction(B-84464EN_03).pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_OptionalFunction(B-84464EN-2_03).pdf" target="_blank">R-50iA_OptionalFunction(B-84464EN-2_03).pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_Python(B-84464EN-26_01).pdf" target="_blank">R-50iA_Python(B-84464EN-26_01).pdf</a></li>
-                                        <li><a class="link-item file-item" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_iRPickTool(B-84454EN_04).pdf" target="_blank">R-50iA_iRPickTool(B-84454EN_04).pdf</a></li>
-                                    </ul>
-                                </details>
-                            </li>
+                                    <li>
+                                        <details>
+                                            <summary class="folder-title">R-50iA Manual</summary>
+                                            <ul>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_BasicFunction(B-84464EN_03).pdf" target="_blank">R-50iA_BasicFunction(B-84464EN_03).pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_OptionalFunction(B-84464EN-2_03).pdf" target="_blank">R-50iA_OptionalFunction(B-84464EN-2_03).pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_Python(B-84464EN-26_01).pdf" target="_blank">R-50iA_Python(B-84464EN-26_01).pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/R-50iA%20Manual/R-50iA_iRPickTool(B-84454EN_04).pdf" target="_blank">R-50iA_iRPickTool(B-84454EN_04).pdf</a></li>
+                                            </ul>
+                                        </details>
+                                    </li>
 
-                        </ul>
-                    </details>
-                </li>
-            </ul>
-        </details>
-    </li>
-</ul>
-
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </details>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
