@@ -176,6 +176,68 @@
         .root-title {
             font-size: 16px;
         }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 14px 12px 18px;
+            }
+
+            .container {
+                border-radius: 12px;
+                padding: 18px 16px;
+                box-shadow: 0 4px 18px rgba(15, 23, 42, 0.08);
+            }
+
+            h1 {
+                font-size: 22px;
+                margin-bottom: 14px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                margin-bottom: 16px;
+            }
+
+            .tree,
+            .tree ul {
+                padding-left: 16px;
+            }
+
+            .tree li {
+                margin: 6px 0;
+                padding-left: 14px;
+            }
+
+            .tree li::before {
+                left: 4px;
+            }
+
+            .tree li::after {
+                left: 4px;
+                top: 14px;
+            }
+
+            summary,
+            .file-link {
+                padding: 10px 12px;
+                font-size: 14px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .file-link {
+                line-height: 1.5;
+            }
+
+            .file-link,
+            summary {
+                width: 100%;
+            }
+
+            .file-link {
+                font-size: 13px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -238,7 +300,9 @@
                                         <details>
                                             <summary class="folder-title">Tablet (R-30iB Plus CRX)</summary>
                                             <ul>
-                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/Tablet/A-97606-6419EN_12.pdf" target="_blank">A-97606-6419EN_12.pdf</a></li>
+                                                <li><a class="file-link" href="https://zhaomengkang.github.io/FANUC-Robot-Manual/Manual/Tablet/A-97606-6419EN_12.pdf" target="_blank">(Tablet Plug-in)A-97606-6419EN_12.pdf</a></li>
+                                                <li><a class="file-link" href="https://raw.githubusercontent.com/zhaomengkang/FANUC-Robot-Manual/main/Manual/Tablet/PluginSDK_r12.zip" target="_blank">PluginSDK_r12.zip</a></li>
+                                               
                                             </ul>
                                         </details>
                                     </li>
